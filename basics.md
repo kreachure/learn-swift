@@ -1,6 +1,8 @@
 # Overview
 * [Variables and simple data types](#variables-and-simple-data-types)
 * [Complex data types: arrays, sets, dictionaries and enums](#complex-data-types-arrays-sets-dictionaries-and-enums)
+* [Operators and conditions](#operators-and-conditions)
+
 # Variables and simple data types
 ```swift
 var a_variable: String = "That's a variable"
@@ -124,4 +126,24 @@ enum Planet: Int {
 }
 let earth = Planet(rawValue: 3)
 print(earth ?? Planet.earth)
+```
+
+# Operators and conditions
+Usual arithmetic operators used are: +, -, *, /, % (modulo)
+`5 % 2 = 1`
+
+## Conditions
+```swift
+if a == 2 && b != 4 {
+    print("Success")
+} else if c > "Alpha" {
+    print("Half-success")
+} else {
+    print("Failure")
+}
+```
+
+## Ternary operator
+```swift
+var a = (a == 0 ? 1 : 2)
 ```
