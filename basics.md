@@ -2,6 +2,8 @@
 * [Variables and simple data types](#variables-and-simple-data-types)
 * [Complex data types: arrays, sets, dictionaries and enums](#complex-data-types-arrays-sets-dictionaries-and-enums)
 * [Operators and conditions](#operators-and-conditions)
+* [Loops](#loops)
+* [Functions](#functions)
 
 # Variables and simple data types
 ```swift
@@ -146,4 +148,137 @@ if a == 2 && b != 4 {
 ## Ternary operator
 ```swift
 var a = (a == 0 ? 1 : 2)
+```
+
+## Range operators
+```swift
+let range = 1...10
+for c in range {
+    print("\(c)", terminator: "")
+}
+```
+This code yields the following value: `1234567910`
+If we use `..<` instead of `...`, the last value is not included:
+```swift
+let range = 1..<10
+for c in range {
+    print("\(c)", terminator: "")
+}
+```
+...gives us `123456789`
+
+## Switch statement
+```swift
+let a = 3
+
+switch a {
+    case 1: print("Mercury")
+    case 2: print("Venus")
+    case 3: print("Earth")
+    default: print("No idea what planet it is")
+}
+```
+
+# Loops
+```swift
+// for
+for i in 1...10 {
+    print("\(i)", terminator: "")
+}
+
+// while
+var i = 0
+while i < 10 {
+    print("\(i)", terminator: "")
+    i += 1
+}
+
+// repeat while
+repeat {
+    print("\(i)", terminator: "")
+    i += 1
+} while i<10
+
+// exiting multiple loops
+outerLoop: for i in 1..<10 {
+    for j in 1..<10 {
+        print("i*j = \(i*j)")
+        if i>3 && j>4 {
+            break outerLoop
+        }
+    }
+}
+
+// continue
+for i in 1...10 {
+    if i % 2 == 0 {
+        continue
+    }
+    print("\(i)", terminator: " ")
+}
+```
+
+# Functions
+```swift
+// simple func with a parameter and return value
+func duplicate(number: Int) -> Int {
+    return 2*number
+}
+
+// parameter labels: "to" is external label, "name" is internal variable name
+func sayHello(to name: String) -> String {
+    return "Hello \(name)!"
+}
+print(sayHello(to: "Dmitry"))
+
+// You can omit parameter label:
+func greet(_ name: String) -> String {
+    return "Hello \(name)"
+}
+print(greet("Dmitry"))
+
+// Parameters with default values
+func tellStory(about hero: String, sex: String="He"){
+    print("\(hero) went on a trip. \(sex) was tired.")
+}
+
+tellStory(about: "Dmitry")
+tellStory(about: "Clementina", sex: "She")
+
+// Variadic functions
+func multiply(numbers: Int...) -> Int {
+    var result = 1
+    for n in numbers{
+        result *= n
+    }
+    return result
+}
+multiply(numbers: 2, 4, 5, 8)
+
+// Parameters by reference (inout)
+var a = 2
+func duplicateParameterItself(arg: inout Int){
+    arg *= 2
+}
+duplicateParameterItself(arg: &a)
+
+// throw, do, try, catch
+enum MyError: Error {
+    case divisionByZero
+}
+
+func divide(a: Int, b: Int) throws -> Int {
+    if b == 0 {
+        throw MyError.divisionByZero
+    }
+    return a/b
+}
+
+do {
+    var c = 0, a = 10, b = 0
+    try c = divide(a: a, b: b)
+    print("\(a)/\(b)=\(c)")
+} catch {
+    print("Can't divide by zero")
+}
 ```
