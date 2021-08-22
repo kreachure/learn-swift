@@ -40,7 +40,3 @@ To show a variable value in a string, use \() combination:
 let myAge = 42
 let confession = "I am \(myAge)."
 ```
-* Int
-* String
-* Float, Double
-* Bool
