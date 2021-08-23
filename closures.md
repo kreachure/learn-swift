@@ -96,6 +96,10 @@ decorateAnAction(in: 3){(activity: String) in
 ## Trailing closures returning value
 
 ## Shorthand parameter names
+We don't need to indicate parameters or return value type, as function *knows* them.
+To omit names, we can use a dollar-notation for variables: `$0`, `$1`, etc.
+
+We don't also need to write `return` keyword. Like in python, the last sentence is the one to be returned.
 ```swift
   func roundAndProcess(first arg1: Double, second arg2: Double, process: (Int, Int) -> Int) -> Int {
     let a1 = Int(arg1)
@@ -103,8 +107,8 @@ decorateAnAction(in: 3){(activity: String) in
     return process(a1, a2)
 }
 
-let product = roundAndProcess(first: 4.0, second: 2.0){ first, second -> Int in
-    first * second
+let product = roundAndProcess(first: 4.0, second: 2.0){ a, b -> Int in
+    a * b
 }
 
 let division = roundAndProcess(first: 4.0, second: 2.0){ $0 / $1 }
