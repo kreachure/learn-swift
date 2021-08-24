@@ -2,6 +2,8 @@ Here we actually have two sections:
 * [Structs, properties, and methods](#structs-properties-and-methods)
 * [Classes](#classes)
 * [Protocols](#protocols)
+* [Extensions](#extensions)
+* [Protocol extensions](#protocol-extensions)
 
 # Structs, properties and methods
 ## Simple struct
@@ -200,4 +202,43 @@ class Dog: Barking, Named {
 
 let cheero = Dog(name: "Cheeroo")
 cheero.bark()
+```
+
+# Extensions
+You can extend existing types:
+```swift
+extension Int {
+    var squared: Int {
+        self * self
+    }
+}
+
+var two: Int = 2
+print(two.squared)
+```
+
+# Protocol extensions
+Adding an extension to a protocol, adds some functionality to all structs/classes which *conform* to the protocol:
+```swift
+protocol Named {
+    var name: String { get set }
+}
+
+extension Named {
+    mutating func capitalize() {
+        self.name = self.name.capitalized
+    }
+}
+
+class Dog: Named {
+    var name: String
+    
+    init(name: String){
+        self.name = name
+    }
+}
+
+var cheeroo = Dog(name: "cheeroo")
+cheeroo.capitalize()
+print(cheeroo.name)
 ```
