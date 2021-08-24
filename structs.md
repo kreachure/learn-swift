@@ -1,6 +1,7 @@
 Here we actually have two sections:
 * [Structs, properties, and methods](#structs-properties-and-methods)
 * [Classes](#classes)
+* [Protocols](#protocols)
 
 # Structs, properties and methods
 ## Simple struct
@@ -173,4 +174,30 @@ print(mongrel.name) // same name, it's just another reference to the same object
 var beagle = Beagle()
 beagle.name = "Cheeroo"
 beagle.bark()
+```
+
+# Protocols
+...are something similar to interfaces in java: you define which properties (with getters and setters) and methods are necessary to create to inherit a protocol.
+Structs can inherit from protocols:
+```swift
+protocol Named {
+    var name: String {get set}
+}
+protocol Barking {
+    func bark() -> Void
+}
+
+class Dog: Barking, Named {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+    
+    func bark(){
+        print("Woof!")
+    }
+}
+
+let cheero = Dog(name: "Cheeroo")
+cheero.bark()
 ```
