@@ -131,3 +131,46 @@ Classes have a few differences from structs:
 * `employee2 = employee1` copies the object if it's a **struct**; it creates a references to the same object if it's a **class**
 * A class can have deinitializer `deinit {}`
 * Mutability. Even a constant object of a class can have variable properties. So, there is no point to use `mutating` modifier of a func. But you can declare constant properties with `let`.
+
+Examples!
+```swift
+class Dog {
+    var breed: String
+    var name: String
+    
+    init() {
+        self.breed = "mongrel"
+        self.name = "Noname"
+    }
+    
+    func bark(){
+        print("Woof!")
+    }
+}
+
+final class Beagle: Dog {
+    override init() {
+        super.init()
+        self.breed = "beagle"
+    }
+    
+    override func bark(){
+        print("Aroo!")
+    }
+    
+    deinit {
+        print("Should be no name anymore: \(self.name)")
+    }
+}
+
+var mongrel = Dog()
+mongrel.name = "Sharik"
+mongrel.bark()
+
+var mongrel1 = mongrel
+print(mongrel.name) // same name, it's just another reference to the same object
+
+var beagle = Beagle()
+beagle.name = "Cheeroo"
+beagle.bark()
+```
