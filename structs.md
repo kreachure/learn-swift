@@ -1,3 +1,7 @@
+Here we actually have two sections:
+* [Structs, properties, and methods](#structs-properties-and-methods)
+* [Classes](#classes)
+
 # Structs, properties and methods
 ## Simple struct
 ```swift
@@ -117,3 +121,13 @@ employee.capitalize()
 print(employee.fullName())
 print(Employee.elements)
 ```
+
+# Classes
+Classes have a few differences from structs:
+* Classes must have initializers if they have properties
+* Inheritance like in `class Beagle: Dog`; and you can use `super.init(params go here)`
+* You can override methods
+* Classes can be `final` - then you can inherit from them
+* `employee2 = employee1` copies the object if it's a **struct**; it creates a references to the same object if it's a **class**
+* A class can have deinitializer `deinit {}`
+* Mutability. Even a constant object of a class can have variable properties. So, there is no point to use `mutating` modifier of a func. But you can declare constant properties with `let`.
