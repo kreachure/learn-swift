@@ -79,3 +79,31 @@ if let retVal = try? checkPassword(password: "smth"){ // the optional try
     print("D'oh!")
 }
 ```
+`try! func()` also unwraps optional value, though it will crash if the value is `nil`.
+
+# Failable initializers `init?()`
+To indicate that initialization wasn't successful, retrun `nil` from `init?()`:
+```swift
+struct Employee {
+    var id: String
+    var firstName: String
+    var lastName: String
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
+    
+    init?(_ id: String){
+        if id.count != 9 {
+            return nil
+        }
+        self.id = id
+        self.firstName = "John"
+        self.lastName = "Doe"
+    }
+}
+
+let john = Employee("123456789")
+let anon = Employee("15")
+
+print("John is \(john!.fullName), while anon is \(anon?.fullName ?? "no object")")
+```
