@@ -1,4 +1,5 @@
-# Simple form
+# Part 1
+## Simple form
 ```swift
 import SwiftUI
 
@@ -29,7 +30,7 @@ What's interesting here:
 * Form adds a possibility to enter data
 * `Form.navigationBarTitle(...)` sets a title of the navbar. NB: it's a method of a Form, not of NavigationView!
 
-# Adding state
+## Adding state
 ```swift
 struct ContentView: View {
     @State private var tapCount = 0 // keeping state here
@@ -50,7 +51,7 @@ struct ContentView: View {
 ```
 `@State` modifier means this is a dynamically updated property of the struct.
 
-# Two-way binding
+## Two-way binding
 ```swift
 struct ContentView: View {
     @State private var name = ""
@@ -69,7 +70,7 @@ struct ContentView: View {
 }
 ```
 
-# ForEach and Picker
+## ForEach and Picker
 ```swift
 struct ContentView: View {
     let students = ["Harry Potter", "Hermione Granger", "Ron Weasely", "Jeanny Weasely"]
