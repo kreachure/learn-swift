@@ -107,3 +107,25 @@ let anon = Employee("15")
 
 print("John is \(john!.fullName), while anon is \(anon?.fullName ?? "no object")")
 ```
+Returns: `John is John Doe, while anon is no object`
+
+# Typecasting
+```swift
+class Animal {}
+class Fish: Animal {}
+class Dog: Animal {
+    func bark(){
+        print("Aroo!")
+    }
+}
+
+let animals = [Fish(), Animal(), Dog()] // based on first two items, Swift creates Array<Animal>()
+
+for pet in animals {
+    if let dog = pet as? Dog {
+        dog.bark()
+    } else {
+        print("Not a dog...")
+    }
+}
+```
