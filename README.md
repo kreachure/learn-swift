@@ -5,7 +5,7 @@
   * string interpolation `\()`
   * operators (incl. range and ternary), if & switch, and conditions
   * loops
-  * functions (external labels, `throwing`, variadic `Int...`, `inout`
+  * functions (external labels, `throwing`, variadic `Int...`, `inout`)
 * [Closures](closures.md)
 * [Structs and classes](structs.md)
   * structs and classes
