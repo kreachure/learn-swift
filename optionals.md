@@ -1,5 +1,5 @@
 # Contents
-* [Basic optionals](#basic-optionals) `var str: String? = nil`
+* [Basic optionals](#basic-optionals) `var str: String? = nil` + `if let x = optionalvar { (... x) } else { ... }`
 * [Guard let](#guard-let)
 * [Forced unwrapping](#forced-unwrapping) `let num: Int! = 5`
 * [Nil coalescing](#nil-coalescing) `??`
