@@ -1,3 +1,6 @@
+This repository is an outline and a cheatsheet for Swift lang.
+I've written it while comprehending [100 days of SiwftUI](https://www.hackingwithswift.com/100/swiftui).
+
 * [Basics](basics.md): 
   * let, var, 
   * simple (Int, Float, Double, Bool, String) 
