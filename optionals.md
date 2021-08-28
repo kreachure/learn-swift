@@ -1,3 +1,13 @@
+# Contents
+* [Basic optionals](#basic-optionals) `var str: String? = nil`
+* [Guard let](#guard-let)
+* [Forced unwrapping](#forced-unwrapping) `let num: Int! = 5`
+* [Nil coalescing](#nil-coalescing) `??`
+* [Optionals chaining](#optionals-chaining) `str?.count`
+* [Optional try](#optional-try) `try? func()`
+* [Failablie initializers](#failable-initializers) `init?()`
+* [Typecasting](#typecasting) `if let dog = pet as? Dog` 
+
 # Basic optionals
 
 `if let x = optionalvar { (... x) } else { ... }` construct deals with optional `optionalvar`.
@@ -81,7 +91,7 @@ if let retVal = try? checkPassword(password: "smth"){ // the optional try
 ```
 `try! func()` also unwraps optional value, though it will crash if the value is `nil`.
 
-# Failable initializers `init?()`
+# Failable initializers
 To indicate that initialization wasn't successful, retrun `nil` from `init?()`:
 ```swift
 struct Employee {
@@ -122,7 +132,7 @@ class Dog: Animal {
 let animals = [Fish(), Animal(), Dog()] // based on first two items, Swift creates Array<Animal>()
 
 for pet in animals {
-    if let dog = pet as? Dog {
+    if let dog = pet as? Dog { // the typecasting
         dog.bark()
     } else {
         print("Not a dog...")
