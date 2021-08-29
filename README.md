@@ -1,6 +1,7 @@
 This repository is an outline and a cheatsheet for Swift lang.
 I've written it while comprehending [100 days of SiwftUI](https://www.hackingwithswift.com/100/swiftui).
 
+# Swift itself
 * [Basics](basics.md): 
   * let, var, 
   * simple (Int, Float, Double, Bool, String) 
@@ -17,3 +18,7 @@ I've written it while comprehending [100 days of SiwftUI](https://www.hackingwit
   * and protocol extensions :-)
 * [Optionals](optionals.md)
   * Int? try? init?() as?
+
+# SwiftUI
+Now getting onto the real deal!
+* [Project 1: WeSplit](SwiftUI_project1.md)
