@@ -98,3 +98,48 @@ ForEach(0 ..< students.count){
   Text(students[$0])
 }
 ```
+
+# Part 2
+```swift
+import SwiftUI
+
+struct ContentView: View {
+    let tipPercentages = [10, 15, 20, 25, 0]
+    @State private var checkAmount = ""
+    @State private var numberOfPeople = 2
+    @State private var tipPercentage = 1
+    private var finalAmount: Double {           // computed property. No @State!
+        let amount = Double(checkAmount) ?? 0.0 // optionals unwrapping
+        let tip = amount * Double(tipPercentages[self.tipPercentage]) / 100
+        let share = (amount + tip) / Double(self.numberOfPeople + 2)
+        return share
+    }
+    
+    var body: some View {
+        NavigationView {  // navigation is important
+            Form  {
+                Section{
+                    TextField("Amount", text: $checkAmount)
+                    Picker("How many are you", selection: $numberOfPeople){
+                        ForEach(2 ..< 100){
+                            Text("\($0) people")
+                        }
+                    }
+                }
+                Section(header: Text("How much tip do you want to leave?")) { // Section with header
+                    Picker("Tip percent", selection: $tipPercentage){
+                        ForEach(0 ..< tipPercentages.count){ i in
+                            Text("\(tipPercentages[i])%")
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle()) // Picker style
+                }
+                Section{
+                    Text("\(finalAmount, specifier: "%.2f")")  // Specifier for Text()
+                }
+            }
+            .navigationBarTitle("We Split") // navigation bar at Form - not at Navigation View
+        }
+    }
+}
+```
