@@ -22,4 +22,4 @@ I've written it while comprehending [100 days of SiwftUI](https://www.hackingwit
 # SwiftUI
 Now getting onto the real deal!
 * [Project 1: WeSplit](SwiftUI_project1.md)
-* [Project 2: Guess the flag](SiwftUI_project2.md)
+* [Project 2: Guess the flag](SwiftUI_project2.md)
