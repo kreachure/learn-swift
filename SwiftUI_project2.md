@@ -1,4 +1,11 @@
 # Guess the flag
+Concepts used:
+* `Array.shuffled()` and `Array.shuffle()`
+* Text and Image modifiers
+* `LinearGradient`
+* Button
+* .alert
+
 ```swift
 import SwiftUI
 
