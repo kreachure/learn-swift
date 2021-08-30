@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                .edgesIgnoringSafeArea(.all)
             VStack(spacing: 30) {
                 VStack{
                     Text("Tap the flag of")
@@ -30,7 +30,7 @@ struct ContentView: View {
                             .renderingMode(.original)
                             .clipShape(Capsule())
                             .overlay(Capsule().stroke(Color.black, lineWidth: 1))
-                            .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: 2)
+                            .shadow(color: .black, radius: 2)
                     }
                 }
                 Spacer()
